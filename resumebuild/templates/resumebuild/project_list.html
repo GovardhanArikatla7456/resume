@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project List</title>
+    <link rel="stylesheet" href="{% static 'resumebuild/styles.css' %}">
+
 </head>
 <body>
     <h1>Projects List</h1>
@@ -18,11 +21,15 @@
         </select>
         <button type="submit">Filter</button>
     </form>
-    <ul>
+    <form action ="{% url 'generate_resume'%}" method = "GET">
+            <ul>
         {% for project in projects %}
-            <li>{{ project.name }}</li>
-            <p>{{project.description}}</p>
+        <li>
+            <input type="checkbox" name="selected_projects" value="{{ project.id }}">
+            {{ project.name }} - {{ project.category }}
+        </li>
         {% endfor %}
     </ul>
+    <button type="submit">Add to Resume</button>
 </body>
 </html>
