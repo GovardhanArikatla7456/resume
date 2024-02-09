@@ -7,8 +7,6 @@ from django.core.files.base import ContentFile
 import tempfile
 
 # Create your views here.
-'''def index(request):
-    return render(request, 'resumebuild/index.html')'''
 def project_list(request):
     projects = Project.objects.all()  # Retrieve all projects
     return render(request, 'resumebuild/project_list.html', {'projects': projects})
