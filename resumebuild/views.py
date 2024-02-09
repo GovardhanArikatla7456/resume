@@ -54,5 +54,4 @@ def generate_resume(request):
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
     response['Content-Disposition'] = f'attachment; filename="{filename}"'
     response.write(file_content)
-    
     return response
